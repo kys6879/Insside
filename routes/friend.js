@@ -21,7 +21,7 @@ router.get('/woman',function(req,res,next) {
   conn.query(sql,function(err,rows,field) {
     var count = rows[0].namesCount
 
-    sql = `SELECT * FROM ifwoman , iuser where ifwoman.iuser_idx = iuser.iuser_idx;`;
+    sql = `SELECT * FROM ifwoman , iuser where ifwoman.iuser_idx = iuser.iuser_idx ;`;
     conn.query(sql,function(err,rowss,field) {
       if(err){
         console.log(err);
@@ -105,7 +105,7 @@ router.get('/man',function(req,res,next) {
   var sql = `select count(*) as namesCount from ifman`;
   conn.query(sql,function(err,rows,field) {
     var count = rows[0].namesCount
-    sql = `SELECT * FROM ifman , iuser;`; //
+    sql = `SELECT * FROM ifman , iuser where ifman.iuser_idx = iuser.iuser_idx ;`; //
     conn.query(sql,function(err,rows,field) {
       if(err){
         console.log(err);

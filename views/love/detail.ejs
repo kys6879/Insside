@@ -10,7 +10,19 @@
   	@font-face{
 	font-family:주아체;
 	src:url("주아체.ttf");
-	}
+  }
+  #myContainer {
+  width: 400px;
+  height: 400px;
+  position: relative;
+
+}
+#myAnimation {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
   </style>
 </head>
 <body>
@@ -53,10 +65,10 @@
     </div>
     <% if(rows[0].iuser_gender == "남자"){ %>
       <div class="input_login">
-          <label><b>한줄소개 :  <%= rows[0].ilman_comment %></b></label>
+          <label ><b>한줄소개 :  <%= rows[0].ilman_comment %></b></label>
         </div>
         <div class="input_login">
-          <label><b><%= rows[0].ilman_like %> 명이 좋아요! </b></label>
+          <label style="color: red;"><b><%= rows[0].ilman_like %> 명이 좋아요!!!! </b></label>
         </div>
    <% }
    else{ %>
@@ -64,11 +76,37 @@
         <label><b>한줄소개 :  <%= rows[0].ilwoman_comment %></b></label>
       </div>
       <div class="input_login">
-        <label><b><%= rows[0].ilwoman_like %> 명이 좋아요! </b></label>
+        <label style="color: red;"><b><%= rows[0].ilwoman_like %> 명이 좋아요!!!! </b></label>
       </div>
       
   <% } %> 
   </div>
   </form>
+  <br><br><br>
+  <p>
+      <button onclick="myMove()">좋아요!</button> 
+  </p>
+
+  <div id ="myContainer">
+      <div id ="myAnimation"></div>
+      </div>
+
+  <script>
+      function myMove() {
+        var elem = document.getElementById("myAnimation");   
+        var top = 800;
+        var left= 300;
+        var id = setInterval(frame,1);
+        function frame() {
+          if (top < -100) {
+            clearInterval(id);
+          } else {
+            top--;
+            elem.style.top = top + 'px'; 
+            elem.style.left = left; 
+          }
+        }
+      }
+      </script>
 </body>
 </html>

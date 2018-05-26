@@ -20,7 +20,7 @@ router.get('/woman',function(req,res,next) {
   conn.query(sql,function(err,rows,field) {
     var count = rows[0].namesCount
 
-    sql = `SELECT * FROM ilwoman , iuser where ilwoman.iuser_idx = iuser.iuser_idx;`;
+    sql = `SELECT * FROM ilwoman , iuser where ilwoman.iuser_idx = iuser.iuser_idx ;`;
     conn.query(sql,function(err,rowss,field) {
       if(err){
         console.log(err);
@@ -109,7 +109,7 @@ router.get('/man',function(req,res,next) {
       })
     }else{
       var count = rows[0].namesCount
-      sql = `SELECT * FROM ilman , iuser;`; //
+      sql = `SELECT * FROM ilman , iuser where ilman.iuser_idx = iuser.iuser_idx ;`; //
       conn.query(sql,function(err,rows,field) {
         if(err){
           console.log(err);
@@ -164,7 +164,7 @@ router.post('/man/add',function(req,res,next) {
         sql = `select iuser_gender from iuser where iuser_idx = ?`
         params = [iuser_idx];
         conn.query(sql,params,function(err,rows,field) {
-          if(rows[0].iuser_gender != "남자"){
+          if(rows[0].iuser_gender != "남자"){ // 내가 여자일경우
             res.send(`<script>alert('남자 유저만 정보등록이 가능합니다.'); location.href='/';</script>`)
           }else{
             sql = `INSERT INTO ilman 

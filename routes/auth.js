@@ -24,6 +24,26 @@ router.get('/login',function(req,res,next) {
   res.render('auth/login');
 })
 
+router.get('/profile',function(req,res,next) {
+  var r = req.body;
+  var sess = req.session;
+
+  var sql = `select * from iuser where iuser.iuser_id = ?`
+  var params = [sess.userid];
+  console.log(params);
+  conn.query(sql,params,function(err,rows,field) {
+    if(err){
+      console.log(err);
+      res.send(`<script>alert('오류발생'); location.href='/';</script>`)
+    }else{
+      res.render('auth/profile',{
+        rows : rows
+      });
+    }
+  })
+  
+})
+
 router.get('/logout',function(req,res,next) {
   delete req.session.userid;
   delete req.session.userpw;
@@ -46,10 +66,10 @@ router.post('/login',function(req,res,next) {
   conn.query(sql,params,function(err,rows,field) {
     if(err){
       console.log(err);
-      res.send('로그인실패');
+      res.send(`<script>alert('로그인 실패 .....'); location.href='/';</script>`)
     }else{
       if(rows[0] == null){
-        res.send('존재하지않는 아이디 또는 비밀번호 입니다..');
+        res.send(`<script>alert('존재하지않는 아이디 또는 비밀번호 입니다.....'); location.href='/';</script>`)
       }
       else if(pw == rows[0].iuser_pw){
         sess.userid = rows[0].iuser_id;
@@ -60,7 +80,7 @@ router.post('/login',function(req,res,next) {
           res.redirect('/');
       })
       }else{
-        res.send('입력하신 아이디 또는 비밀번호가 잘못되었습니다.');
+        res.send(`<script>alert('입력하신 아이디 또는 비밀번호가 잘못되었습니다.....'); location.href='/';</script>`)
       }
     }
   })
@@ -115,9 +135,12 @@ router.post('/register',function(req,res,next) {
       }
     }
   })
+})
 
+router.post('/profile',function(req,res,next) {
 
-  
+  res.redirect('/');
+
 })
 
 module.exports = router;

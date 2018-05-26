@@ -29,6 +29,8 @@
                               <%= sess %> 님 환영합니다.
                               <br>
                               <a href="/auth/logout">로그아웃</a>
+                              &nbsp&nbsp&nbsp
+                              <a href="/auth/profile">정보수정</a>
                               <%} %>
                         </div>
                         <header>
@@ -64,36 +66,11 @@
                       </div>
                       <div class="null_panel">
                           </div>
-
-                  <!-- <div class="inmainodd">
-                  <a href="friend/man">
-                    <div class="cen">
-                        남사친 구하기
-                    </div>
-                  </div>
-                  </a>
-                  <a href="friend/woman">
-                    <div class="cen">
-                        여사친 구하기
-                    </div>
-                  </a>
-                    <a href="love/man">
-                    <div class="cen">
-                        남자친구 구하기
-                    </div>
-                  </a>
-                  <a href="love/woman">
-                    <div class="inmaineven">
-                        여자친구 구하기
-                    </div>
-                  </a>
-                    <div class="null_panel">
-                    </div> -->
                 </div>
             </div>
             <a href="#x" class="overlay" id="login_form"></a>
             <div class="popup">
-                <form action="auth/login" method="post" style="max-width:auto;max-height:400px;">
+                <form action="auth/login" method="post" style="max-width:auto;max-height:600px;">
                     <div class="wrapper">
                         <div class="login_box">
                             <div class="logmain">
