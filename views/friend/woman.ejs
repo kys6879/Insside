@@ -58,13 +58,16 @@
             <% } %>   
            <%  } %>
         </ul>
-        <article class="subm">
-            <form action="woman/add" method="post">
-              <input type="submit" value="등록하기" onclick="return add();" style="font-size: 45px; background-color: #4CAF50; border-radius: 12px; padding: 32px 16px;">
-              <input type="hidden" id="comment" name="comment" >
-            </form> 
-        </article>
+
       </section>
+      <div class="b">
+          <article class="subm">
+              <form action="man/add" method="post">
+                <input type="submit" value="등록하기" onclick="return add();" style="font-size: 45px; background-color: #4CAF50; border-radius: 12px; padding: 32px 16px;">
+                <input type="hidden" id="comment" name="comment" >
+              </form> 
+          </article>
+        </div>
         </div>
         <script>
             function add(params) {

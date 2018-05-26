@@ -12,17 +12,16 @@
 	src:url("주아체.ttf");
   }
   #myContainer {
-  width: 400px;
-  height: 400px;
-  position: relative;
-
-}
-#myAnimation {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background-color: red;
-}
+    width:100%;
+    height:auto;
+    position: relative;
+  }
+  #myAnimation {
+    width:200px;
+    height:200px;
+    position: relative;
+    background : url(/heart.png)
+  }
   </style>
 </head>
 <body>
@@ -86,11 +85,11 @@
   <p>
       <button onclick="myMove()">좋아요!</button> 
   </p>
-
+  
   <div id ="myContainer">
       <div id ="myAnimation"></div>
       </div>
-
+  
   <script>
       function myMove() {
         var elem = document.getElementById("myAnimation");   

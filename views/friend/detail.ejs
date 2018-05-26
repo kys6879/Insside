@@ -12,17 +12,16 @@
 	src:url("주아체.ttf");
   }
   #myContainer {
-  width: 400px;
-  height: 400px;
-  position: relative;
-
-}
-#myAnimation {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background-color: red;
-}
+    width:100%;
+    height:auto;
+    position: relative;
+  }
+  #myAnimation {
+    width:200px;
+    height:200px;
+    position: relative;
+    background : url(/heart.png)
+  }
   </style>
 </head>
 <body>
@@ -86,30 +85,30 @@
   </div>
   </form>
 <br><br><br>
-  <p>
-      <button onclick="myMove()">좋아요!</button> 
-  </p>
+<p>
+    <button onclick="myMove()">좋아요!</button> 
+</p>
 
-  <div id ="myContainer">
-      <div id ="myAnimation"></div>
-      </div>
+<div id ="myContainer">
+    <div id ="myAnimation"></div>
+    </div>
 
-  <script>
-      function myMove() {
-        var elem = document.getElementById("myAnimation");   
-        var top = 800;
-        var left= 300;
-        var id = setInterval(frame,1);
-        function frame() {
-          if (top < -100) {
-            clearInterval(id);
-          } else {
-            top--;
-            elem.style.top = top + 'px'; 
-            elem.style.left = left; 
-          }
+<script>
+    function myMove() {
+      var elem = document.getElementById("myAnimation");   
+      var top = 800;
+      var left= 300;
+      var id = setInterval(frame,1);
+      function frame() {
+        if (top < -100) {
+          clearInterval(id);
+        } else {
+          top--;
+          elem.style.top = top + 'px'; 
+          elem.style.left = left; 
         }
       }
-      </script>
+    }
+    </script>
 </body>
 </html>
